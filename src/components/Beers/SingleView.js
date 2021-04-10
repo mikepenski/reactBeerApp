@@ -3,7 +3,7 @@ import {
   } from "react-router-dom";
 
 import { useHistory } from "react-router-dom";
-import arrowLeftImage from '../../assets/img/arrowLeft.svg';
+import arrowLeft from '../../assets/img/arrowLeft.svg';
 
 const SingleView = (props) => {
 
@@ -47,7 +47,7 @@ const SingleView = (props) => {
                             className={button + " go-back"}
                             disabled={history.action === 'POP'}
                             >
-                            <img src={arrowLeftImage} alt="Beer Image" />
+                            <img src={arrowLeft} alt="Beer Image" />
                         </div>
                     
                     </div>
