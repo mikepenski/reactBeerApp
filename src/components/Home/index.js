@@ -34,7 +34,7 @@ const Home = (props) => {
 
                                     <Link to={navitems[index].link} className="full-link" />
 
-                                    <img src={navitems[index].image} alt={"Image" + navitems[index].name} />
+                                    <img src={navitems[index].image} alt={"Image" + navitems[index].name} className="w-100" />
 
                                     <Link to={navitems[index].link} className="cat-link"><span>{navitems[index].name}</span></Link>
 

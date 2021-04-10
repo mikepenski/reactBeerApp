@@ -1,11 +1,8 @@
 import {useEffect, useState } from "react";
 import { getRandomBeer } from '../../API/BeerAPI';
-import { useHistory } from "react-router-dom";
 import SingleView from '../Beers/SingleView';
 
 const RandomBeers = (props) => {
-
-    let history = useHistory();
 
     const [randomPost, setRandomPost] = useState(null);
 

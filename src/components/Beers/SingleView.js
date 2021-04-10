@@ -16,7 +16,7 @@ const SingleView = (props) => {
 
     let button;
 
-    if (props.view != "single") {
+    if (props.view !== "single") {
         button =  "d-none";
       }
 
