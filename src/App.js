@@ -1,5 +1,5 @@
-import React from 'react';
-import axios from 'axios';
+import { getAllBeers } from './API/BeerAPI';
+import { Component } from 'react';
 
 import {
   BrowserRouter as Router,
@@ -7,20 +7,29 @@ import {
   Route
 } from "react-router-dom";
 
-import './assets/css/style.css';
 
+//import components and styling
+import './assets/css/style.css';
 import Navbar from './components/Global/Navbar';
 import Home from './components/Home/index';
 import AllBeers from './components/Beers/AllBeers';
-import RandomBeers from './components/Beers/RandomBeers';
+import RandomBeers from './components/Beers/SingleRandom';
 import SingleBeer from './components/Beers/SingleBeer';
 
+export default class App extends Component {
 
-class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: [],
+      randomPost : {}
+    }
+  }
 
   state = {
     headerPaddingTop: '',
-    posts: []
+    posts: [],
+    randomPost : {}
   }
 
   componentDidMount(){
@@ -28,15 +37,9 @@ class App extends React.Component {
     this.bodyPaddingBottom();
     window.addEventListener('resize', this.bodyPaddingBottom);
 
-    axios.get(`https://ih-beers-api2.herokuapp.com/beers`)
-      .then(res => {
-        const posts = res.data;
-        this.setState({ posts });
-        //console.log(posts)
-      })
-
-      //this.getPostById();
-  
+     //Get all beers
+     getAllBeers().then(data => this.setState({posts: data}));
+ 
   }
 
   bodyPaddingBottom = () => {
@@ -48,7 +51,6 @@ class App extends React.Component {
     }
 
     getPostById(id) {
-
       //console.log(this.state.posts);
       return this.state.posts.filter(beer => beer._id === id );
     }
@@ -69,9 +71,11 @@ class App extends React.Component {
                <AllBeers data={this.state.posts} />
             </Route>
 
-            <Route path="/random-beers" exact>
-               <RandomBeers data={this.state.posts} />
-            </Route>
+            <Route path="/random-beer" exact
+                  render={ () => (  
+                    <RandomBeers data={this.state.randomPost} />
+                  )}
+                />
 
             <Route path="/beer/:id">
               <SingleBeer getPost={e => this.getPostById(e)}></SingleBeer>
@@ -87,5 +91,4 @@ class App extends React.Component {
 
 }
 
-export default App;
 

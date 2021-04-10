@@ -2,6 +2,22 @@ import { Link } from 'react-router-dom';
 import allBeers from '../../assets/img/all-beers.jpg';
 import randomBeers from '../../assets/img/random-beers.jpg';
 
+const navitems = [
+
+    {
+        'name' : 'All Beers',
+        'link' : '/all-beers',
+        'image' : allBeers
+    }, 
+
+    {
+        'name' : 'Random Beer',
+        'link' : '/random-beer',
+        'image' : randomBeers
+    }
+
+]
+
 const Home = (props) => {
     
     return <div className="home">
@@ -10,37 +26,26 @@ const Home = (props) => {
 
                     <div className="categories">
 
-                        <div className="cat item mb-4">
+                        {navitems.map((item, index) => {
 
-                            <div className="image-container">
+                            return <div className="cat item mb-4" key={index + "item"}>
 
-                            <Link to="/all-beers" className="full-link" />
+                                <div className="image-container">
 
-                            <img src={allBeers} alt="Cat all beers" />
+                                    <Link to={navitems[index].link} className="full-link" />
 
-                            <Link to="/all-beers" className="cat-link"><span>All Beers</span></Link>
+                                    <img src={navitems[index].image} alt={"Image" + navitems[index].name} />
 
-                            </div>
+                                    <Link to={navitems[index].link} className="cat-link"><span>{navitems[index].name}</span></Link>
 
-                            <p className="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo, a, eleifend vitae varius venenatis. </p>
+                                    </div>
 
-                        </div>
+                                    <p className="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo, a, eleifend vitae varius venenatis. </p>
 
-                        <div className="cat item">
+                                </div>
+                        }
 
-                            <div className="image-container">
-
-                            <Link to="/random-beers" className="full-link" />
-
-                            <img src={randomBeers} alt="Cat all beers" />
-
-                            <Link to="/random-beers" className="cat-link"><span>Random Beers</span></Link>
-
-                            </div>
-
-                            <p className="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo, a, eleifend vitae varius venenatis. </p>
-
-                        </div>
+                        )}
 
                     </div>
 

@@ -2,57 +2,28 @@ import {
     useParams,
   } from "react-router-dom";
 
-import { Link } from 'react-router-dom';
-import { useHistory } from "react-router-dom";
-import Container from 'react-bootstrap/Container'
+import SingleView from '../Beers/SingleView';
 
 const SingleBeer = (props) => {
 
-    let history = useHistory();
     const { id } = useParams();
     
     let post = props.getPost(id);
     post = post[0];
 
-    console.log(post);
-
     if(typeof post !== "undefined"){
 
-        const { name, image_url } = post;
+        document.body.classList.remove('loading');
 
-        return <div className="home">
-
-                <div className="container py-5">
-
-                    <div className={"beer" + id }>
-
-                        <div className="row">
-
-                            <div className="col-6">
-
-                                <img src={image_url} alt={"Image" + name} height="191" />
-
-                            </div>
-
-                            <div className="col-6">
-
-                              <div className="title d-block">{name}</div>
-                                
-                            </div>
-
-                        </div>
-                    
-                    </div>
-
-                </div>
-                
-           </div>
-
+        return <SingleView data={post} view={"single"} />
         
     } else {
-        return <div className="post">
-             Loading
-     </div>
+
+        document.body.classList.add('loading');
+
+        return <div className="lds-roller">
+             <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
 
     }
 
