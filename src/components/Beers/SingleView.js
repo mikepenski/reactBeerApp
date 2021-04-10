@@ -47,7 +47,7 @@ const SingleView = (props) => {
                             className={button + " go-back"}
                             disabled={history.action === 'POP'}
                             >
-                            <img src={arrowLeftImage} />
+                            <img src={arrowLeftImage} alt="Beer Image" />
                         </div>
                     
                     </div>

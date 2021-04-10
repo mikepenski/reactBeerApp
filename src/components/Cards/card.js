@@ -17,7 +17,7 @@ const Card = (props) => {
 
                       <div className="img-container">
                         <Link to={"/beer/" + id} key={name}>
-                              <img src={image_url} className="img" alt="Beer Image" height="191" loading="lazy" />
+                              <img src={image_url} className="img" alt="Beer" height="191" loading="lazy" />
                         </Link>
                       </div>
 
