@@ -24,6 +24,8 @@ const Home = (props) => {
 
                 <div className="container py-2">
 
+                    <h1 className="mb-4">BeerApp</h1>
+
                     <div className="categories">
 
                         {navitems.map((item, index) => {

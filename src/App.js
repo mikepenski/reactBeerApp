@@ -1,4 +1,4 @@
-import { getAllBeers } from './API/BeerAPI';
+import { getAllBeers } from './components/Beers/BeerAPI';
 import { Component } from 'react';
 
 import {
@@ -15,6 +15,7 @@ import Home from './components/Home/index';
 import AllBeers from './components/Beers/AllBeers';
 import RandomBeers from './components/Beers/SingleRandom';
 import SingleBeer from './components/Beers/SingleBeer';
+import ScrollToTop from './components/Global/ScrollToTop'
 
 export default class App extends Component {
 
@@ -83,6 +84,7 @@ export default class App extends Component {
 
           </Switch>
         </div>
+        <ScrollToTop />
       </Router>
     );
 

@@ -4,6 +4,7 @@ import {
 
 import { useHistory } from "react-router-dom";
 import arrowLeft from '../../assets/img/arrowLeft.svg';
+import reloadIcon from '../../assets/img/reload.svg';
 
 const SingleView = (props) => {
 
@@ -12,7 +13,7 @@ const SingleView = (props) => {
     let history = useHistory();
     const { id } = useParams();
 
-    console.log(props.view);
+    //console.log(props.view);
 
     let button;
 
@@ -23,13 +24,17 @@ const SingleView = (props) => {
   
     if(typeof post !== "undefined"){
 
-        const { name, image_url, tagline, description } = post;
+        const { _id, name, image_url, tagline, description } = post;
+
+        console.log(post)
 
         return <div className="singleBeer">
 
                 <div className="container py-5">
 
-                    <div className={"beer" + id }>
+                    <div className={"beer-" + _id }>
+
+                        {props.view !== "single" && <strong>Your random beer:</strong> }
 
                         <div className="image-container p-4">
                             <img src={image_url} alt={"Image" + name} height="191" />
@@ -41,6 +46,30 @@ const SingleView = (props) => {
 
                         <p className="description">{description}</p>
 
+                        {props.view !== "single" ?
+
+                        <div onClick={() => {
+                            window.location.reload();
+                        }}
+                        className="refresh-page"
+                        >
+                        <img src={reloadIcon} alt="Reload Icon" />
+                        </div>
+
+                        :
+
+                        <div onClick={() => {
+                            if (history.action !== 'POP') history.goBack();
+                        }}
+                        className={history.action === 'POP' ? "go-back disabled" : "go-back"}
+                        >
+                        <img src={arrowLeft} alt="Go back icon" />
+                        </div>
+                    
+                        }
+
+                        {/*
+
                         <div onClick={() => {
                                 if (history.action !== 'POP') history.goBack();
                             }}
@@ -49,6 +78,8 @@ const SingleView = (props) => {
                             >
                             <img src={arrowLeft} alt="Beer Single" />
                         </div>
+                        
+                        */}
                     
                     </div>
 

@@ -14,15 +14,19 @@ const AllBeers = (props) => {
 
             <div className="beers">
 
-            {props.data.map((item, index) => {
+                <h3 className="mb-4">All Beers:</h3>
 
-                    return  <div key={index + "col"} className="col-12 col mb-4">
-                        <Card key={index} data={item} />
-                    </div>
-                })}
+                <div className="row">
+
+                    {props.data.map((item, index) => {
+                        return  <div key={index + "col"} className="col-12 col mb-4">
+                            <Card key={index} data={item} />
+                        </div>
+                    })}
+
+                </div>
 
             </div>
-           
 
         </div>
    </div>

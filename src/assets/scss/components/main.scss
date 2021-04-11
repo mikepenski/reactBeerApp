@@ -56,19 +56,31 @@ p{
 }
 
 .beers{
-    .img-container{
-        img{
-            height: 191px;
-            margin: 0 auto;
-            display: block;
+
+    .card{
+        .card-body{
+            padding: 0;
+            .img-container{
+                img{
+                    height: 191px;
+                    margin: 0 auto;
+                    display: block;
+                }
+            }
+            a{
+                &.details{
+                    border-radius: 30px;
+                }
+            }
         }
     }
+
 }
 
-.go-back{
+.go-back, .refresh-page{
     background: $primary;
-    width: 75px;
-    height: 75px;
+    width: 60px;
+    height: 60px;
     border-radius: 100px;
     position: relative;
     display: inline-block;
@@ -77,6 +89,28 @@ p{
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        width: 20px;
+    }
+    &.disabled {
+        background: #dddddd;
+        opacity: .5;
+      }
+}
+
+.refresh-page{
+    img{
+        width: 40px;
+    }
+}
+
+.scroll-to-top{
+    position: fixed;
+    bottom: 1.25rem;
+    right: 2rem;
+    z-index: 75;
+    img{
+        transform: rotate( 90deg);
         width: 30px;
+        height: 30px;
     }
 }

@@ -1,5 +1,5 @@
 import {useEffect, useState } from "react";
-import { getRandomBeer } from '../../API/BeerAPI';
+import { getRandomBeer } from '../Beers/BeerAPI';
 import SingleView from '../Beers/SingleView';
 
 const RandomBeers = (props) => {

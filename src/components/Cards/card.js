@@ -34,6 +34,7 @@ const Card = (props) => {
                           pathname: "/beer/" + id,
                           state: props.data // your data array of objects
                       }}
+                      className="btn btn-primary text-white details px-3"
                       >
                       Details
                       </Link>
