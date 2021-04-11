@@ -1,7 +1,3 @@
-import {
-    useParams,
-  } from "react-router-dom";
-
 import { useHistory } from "react-router-dom";
 import arrowLeft from '../../assets/img/arrowLeft.svg';
 import reloadIcon from '../../assets/img/reload.svg';
@@ -9,11 +5,7 @@ import reloadIcon from '../../assets/img/reload.svg';
 const SingleView = (props) => {
 
     let post = props.data;
-
     let history = useHistory();
-    //const { id } = useParams();
-
-    //console.log(props.view);
 
    /*  let button;
 
@@ -21,7 +13,6 @@ const SingleView = (props) => {
         button =  "d-none";
       } */
 
-  
     if(typeof post !== "undefined"){
 
         const { _id, name, image_url, tagline, description } = post;
