@@ -11,15 +11,15 @@ const SingleView = (props) => {
     let post = props.data;
 
     let history = useHistory();
-    const { id } = useParams();
+    //const { id } = useParams();
 
     //console.log(props.view);
 
-    let button;
+   /*  let button;
 
     if (props.view !== "single") {
         button =  "d-none";
-      }
+      } */
 
   
     if(typeof post !== "undefined"){
