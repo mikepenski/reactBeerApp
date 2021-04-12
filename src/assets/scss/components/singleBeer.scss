@@ -11,6 +11,7 @@
             font-weight: 500;
             margin-bottom: 1rem;
             line-height: 65px;
+            font-size: 3rem;
         }
     }
     h2{
@@ -21,7 +22,25 @@
             line-height: 23px;
         }
     }
+    .additional-info{
+        color: $gray-500;
+        line-height: 1.25rem;
+        font-size: .9rem;
+    }
     .description{
         font-size: .95rem;
+    }
+    .ingredients{
+        strong{
+            display: block;
+        }
+        ul{
+            li{
+                font-size: .9rem;
+            }
+        }
+        span{
+            font-size: .9rem;
+        }
     }
 }

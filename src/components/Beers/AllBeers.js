@@ -21,6 +21,7 @@ const AllBeers = (props) => {
                     {props.data.map((item, index) => {
                         return  <div key={index + "col"} className="col-12 col mb-4">
                             <Card key={index} data={item} />
+                            <hr />
                         </div>
                     })}
 

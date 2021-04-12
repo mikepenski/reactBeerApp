@@ -1,0 +1,40 @@
+.beers{
+    .card{
+        .card-body{
+            padding: 0;
+            .img-container{
+                img{
+                    height: 191px;
+                    margin: 0 auto;
+                    display: block;
+                }
+            }
+            h1{
+                &.title{
+                    font-weight: 500;
+                    margin-bottom: .5rem;
+                    line-height: 2.15rem;
+                    font-size: 1.75rem;
+                }
+            }
+            h2{
+                &.tagline{
+                    color: $primary;
+                    font-weight: 900;
+                    font-size: 1.25rem;
+                    line-height: 23px;
+                    margin-bottom: .75rem;
+                }
+            }
+            .created{
+                font-size: .85rem;
+            }
+            a{
+                &.details{
+                    border-radius: 30px;
+                    padding: 5px 26px;
+                }
+            }
+        }
+    }
+}

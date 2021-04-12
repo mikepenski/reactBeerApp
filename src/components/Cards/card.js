@@ -4,8 +4,10 @@ import {
 
 const Card = (props) => {
 
-    const { _id, name, image_url } = props.data;
+    const { _id, name, image_url, tagline } = props.data;
     const id = _id;
+
+    //console.log(props.data);
 
     return <div className="card h-100 border-0" id={"beer-" + id}>
 
@@ -13,7 +15,7 @@ const Card = (props) => {
 
                   <div className="row">
 
-                    <div className="col-6">
+                    <div className="col-5">
 
                       <div className="img-container">
                         <Link to={"/beer/" + id} key={name}>
@@ -23,18 +25,24 @@ const Card = (props) => {
 
                     </div>
 
-                    <div className="col-6">
+                    <div className="col-7">
 
-                      <h5 className="title my-2 font-weight-bold">
+                      <h1 className="title">
                         {name}
-                      </h5>
+                      </h1>
+
+                      <h2 className="tagline">
+                        {tagline}
+                      </h2>
+
+                      <p className="created">Created by: {name}</p>
 
                       <Link
                       to={{
                           pathname: "/beer/" + id,
                           state: props.data // your data array of objects
                       }}
-                      className="btn btn-primary text-white details px-3"
+                      className="btn btn-primary text-white details"
                       >
                       Details
                       </Link>
@@ -49,6 +57,5 @@ const Card = (props) => {
            
     }
     
-  
 export default Card;
 
