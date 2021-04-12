@@ -1,9 +1,7 @@
-import {useEffect, useState } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import arrowLeft from '../../assets/img/arrowLeft.svg';
 import reloadIcon from '../../assets/img/reload.svg';
-
-import Button from 'react-bootstrap/Button'
 import { Nav, Accordion, useAccordionToggle } from 'react-bootstrap'
 
 const SingleView = (props) => {
@@ -11,20 +9,22 @@ const SingleView = (props) => {
     let post = props.data;
     let history = useHistory();
 
-    const [isActive, setActive] = useState(false);
+    /*
+
+      const [isActive, setActive] = useState(false);
 
     const toggleClass = () => {
       setActive(!isActive);
     };
 
+
+    */
+
     const [panelIndex, setPanelIndex] = useState(0)
-    const [activeClass, setActiveClass] = useState()
 
     const CustomToggle = ({ children, eventKey }) => {
 
         const customOnClick = useAccordionToggle(eventKey, (e) => {
-
-            let target = e.target.parentNode;
 
             setPanelIndex( eventKey === panelIndex ? null : eventKey )
 
@@ -169,6 +169,27 @@ const SingleView = (props) => {
                                                 </span>
                                             </Accordion.Collapse>
                                         </div>
+
+                                        <div class="accordion-item">
+                                            <CustomToggle eventKey="3" class="active">
+                                                  <strong>Food pairing:</strong>
+                                            </CustomToggle>
+
+                                            <Accordion.Collapse eventKey="3">
+                                                <span>
+                                                <ul>
+                                                     {food_pairing && food_pairing.map((item, index) => {
+                                                        return  <li key={index + "col"}>
+                                                                {item}
+                                                        </li>
+                                                    })}
+                                                </ul>
+                                                   
+                                                </span>
+                                            </Accordion.Collapse>
+                                        </div>
+
+                                        
                     
                                     </Accordion>
 

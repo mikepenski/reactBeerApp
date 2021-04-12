@@ -35,8 +35,10 @@
             display: block;
         }
         ul{
+            padding-left: 1rem;
             li{
                 font-size: .9rem;
+                list-style: decimal;
             }
         }
         span{
